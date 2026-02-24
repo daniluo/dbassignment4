@@ -1,0 +1,3 @@
+--Creative addition: Define a new meaningful query using at least three tables, and some window function. Explain clearly what your query achieves, and what the results mean
+--how many media types exist are of each genre- returns name of genre, name of media type, number of track types in each genre
+SELECT genres.name as Genre, mediatypes.name as MediaType, COUNT(*) as NumTracks FROM tracks JOIN genres ON tracks.genreid = genres.genreid JOIN mediatypes ON tracks.mediatypeid = mediatypes.mediatypeid GROUP BY Genre, MediaType;

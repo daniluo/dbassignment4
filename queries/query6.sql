@@ -1,0 +1,3 @@
+--What are the names of all artists who performed MPEG (video or audio) tracks in either the "Brazilian Music" or the "Grunge" playlists?
+--first takes tracks from the relevant playlists, then returns only mpeg tracks (mediatypeid = 1), then uses that to get albumid and matches that with artist name
+SELECT name FROM artists WHERE artistID IN (SELECT artistID FROM albums WHERE albumID in (SELECT AlbumID FROM tracks WHERE trackID IN (SELECT trackID FROM playlist_track WHERE playlistid = 11 OR playlistid = 16) AND MediaTypeID = 1));
